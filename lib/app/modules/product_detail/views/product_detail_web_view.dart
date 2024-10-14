@@ -1,26 +1,27 @@
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-// import 'package:webview_flutter/webview_flutter.dart';
 
-// import '../../../data/models/article.dart';
-// import '../controllers/article_detail_controller.dart';
+import 'package:get/get.dart';
+import 'package:flutter/material.dart';
+import 'package:liedle/app/data/model/brands.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+import 'package:liedle/app/modules/product_detail/controller/product_detail_controller.dart';
 
+class ProductDetailWebView extends GetView<ProductDetailController> {
+  final BrandElement brand; // Change this to BrandElement
+  const ProductDetailWebView({
+    super.key,
+    required this.brand,
+  });
 
-// class ArticleDetailWebView extends GetView<ArticleDetailController> {
-//   final Article article;
-//   const ArticleDetailWebView({
-//     super.key,
-//     required this.article,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         appBar: AppBar(
-//           title: const Text("WebView"),
-//         ),
-//         body: WebViewWidget(
-//           controller: controller.webViewController(article.url),
-//         ));
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("WebView"),
+      ),
+      body: WebViewWidget(
+        controller:
+            controller.webViewController(brand.website), // Use brand.website
+      ),
+    );
+  }
+}
