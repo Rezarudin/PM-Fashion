@@ -2,27 +2,18 @@ import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class ProductDetailController extends GetxController {
+  late final WebViewController webViewController;
+
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
-  }
 
-  @override
-  void onReady() {
-    // TODO: implement onReady
-    super.onReady();
-  }
+    // Dapatkan URL dari Get.arguments
+    String url = Get.arguments ??
+        'https://www.zara.com/id/'; // Default URL jika arguments tidak ada
 
-  @override
-  void onClose() {
-    // TODO: implement onClose
-    super.onClose();
-  }
-
-  WebViewController webViewController(String uri) {
-    return WebViewController()
+    webViewController = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..loadRequest(Uri.parse(uri));
+      ..loadRequest(Uri.parse(url));
   }
 }

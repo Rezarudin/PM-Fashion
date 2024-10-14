@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
+import 'package:liedle/app/data/model/brands.dart';
+import 'package:liedle/app/data/service/brands_controller.dart';
+import 'package:liedle/app/modules/product_detail/views/product_detail_web_view.dart';
+import 'package:liedle/app/routes/app_pages.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 import '../controller/product_detail_controller.dart';
 import 'package:flutter_image_carousel_slider/flutter_image_slider.dart';
 
@@ -640,9 +646,15 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                 ),
               ),
             ),
+            const SizedBox(
+              width: 30,
+            ),
             IconButton(
                 onPressed: () {
-                  //webview
+                  Get.to(() => ProductDetailWebView(),
+                      arguments:
+                          'https://www.zara.com/id/' // URL yang ingin ditampilkan
+                      );
                 },
                 icon: const Icon(Icons.next_plan_outlined))
           ],
