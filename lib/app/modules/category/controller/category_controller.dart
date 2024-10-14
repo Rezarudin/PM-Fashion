@@ -1,11 +1,38 @@
 import 'package:get/get.dart';
 
-class CategoryController extends GetxController {
-  // Define the isFavorite status as an RxBool so it can be reactive
-  var isFavoriteList = List<bool>.filled(2, false).obs;
+import 'package:liedle/app/data/model/product.dart';
+import 'package:liedle/app/data/service/http_controller.dart';
 
-  // Function to toggle the favorite status
+class CategoryController extends GetxController {
+  final HttpController httpController = Get.put(HttpController());
+
+  RxList<Product> products = RxList<Product>([]);
+  RxList<bool> isFavoriteList = RxList<bool>();
+  RxBool isLoading = false.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    fetchProducts();
+  }
+
+  Future<void> fetchProducts() async {
+    try {
+      isLoading.value = true;
+      await httpController.fetchProduct();
+      products.value =
+          httpController.products; // Assign products from HttpController
+
+      // Initialize isFavoriteList based on the number of products
+      isFavoriteList.value = List.generate(products.length, (index) => false);
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
   void toggleFavorite(int index) {
-    isFavoriteList[index] = !isFavoriteList[index];
+    if (index < isFavoriteList.length) {
+      isFavoriteList[index] = !isFavoriteList[index];
+    }
   }
 }
