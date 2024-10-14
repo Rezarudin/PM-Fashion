@@ -4,6 +4,7 @@ import 'package:liedle/app/modules/login/bindings/login_binding.dart';
 import 'package:liedle/app/modules/login/views/login_view.dart';
 import 'package:liedle/app/modules/product_detail/bindings/product_detail_bindings.dart';
 import 'package:liedle/app/modules/product_detail/views/product_detail_view.dart';
+import 'package:liedle/app/modules/product_detail/views/product_detail_web_view.dart';
 import 'package:liedle/app/modules/register/bindings/register_binding.dart';
 import 'package:liedle/app/modules/register/views/register_view.dart';
 
@@ -37,6 +38,11 @@ class AppPages {
       name: _Paths.REGISTER,
       page: () => RegisterView(),
       binding: RegisterBinding(),
+    ),
+    GetPage(
+      name: _Paths.WEBVIEW,
+      page: () => ProductDetailWebView(),
+      //binding: RegisterBinding(),
     ),
   ];
 }
