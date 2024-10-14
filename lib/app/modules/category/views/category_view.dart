@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:liedle/app/modules/product_detail/views/product_detail_view.dart';
+import '../../home/views/home_view.dart';
+import '../../product_detail/views/product_detail_view.dart';
+import '/../Users/muhre/PM-Fashion/lib/app/modules/home/views/home_view.dart';
+
 import '../controller/category_controller.dart';
 
 class CategoryView extends StatelessWidget {
@@ -12,7 +15,10 @@ class CategoryView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            onPressed: () {}, icon: const Icon(Icons.arrow_back_ios)),
+            onPressed: () {
+              Get.to(HomeView());
+            },
+            icon: const Icon(Icons.arrow_back_ios)),
         title: const Text('CATEGORY'),
         centerTitle: true,
         actions: [
@@ -31,20 +37,20 @@ class CategoryView extends StatelessWidget {
                       print('Selected Sort: $value');
                     },
                     itemBuilder: (BuildContext context) => [
-                      PopupMenuItem(
+                      const PopupMenuItem(
                         value: 'Price: Low to High',
                         child: Text('Price: Low to High'),
                       ),
-                      PopupMenuItem(
+                      const PopupMenuItem(
                         value: 'Price: High to Low',
                         child: Text('Price: High to Low'),
                       ),
-                      PopupMenuItem(
+                      const PopupMenuItem(
                         value: 'Newest First',
                         child: Text('Newest First'),
                       ),
                     ],
-                    child: Row(
+                    child: const Row(
                       children: [
                         Text(
                           'SORT',
@@ -57,26 +63,26 @@ class CategoryView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(width: 40),
+                  const SizedBox(width: 40),
                   PopupMenuButton<String>(
                     onSelected: (value) {
                       print('Selected Sort: $value');
                     },
                     itemBuilder: (BuildContext context) => [
-                      PopupMenuItem(
+                      const PopupMenuItem(
                         value: 'Price: Low to High',
                         child: Text('Price: Low to High'),
                       ),
-                      PopupMenuItem(
+                      const PopupMenuItem(
                         value: 'Price: High to Low',
                         child: Text('Price: High to Low'),
                       ),
-                      PopupMenuItem(
+                      const PopupMenuItem(
                         value: 'Newest First',
                         child: Text('Newest First'),
                       ),
                     ],
-                    child: Row(
+                    child: const Row(
                       children: [
                         Text(
                           'FILTER',
@@ -110,7 +116,7 @@ class CategoryView extends StatelessWidget {
                           children: [
                             Stack(
                               children: [
-                                Container(
+                                SizedBox(
                                   height: 240,
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
@@ -140,7 +146,7 @@ class CategoryView extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            Column(
+                            const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
@@ -177,7 +183,7 @@ class CategoryView extends StatelessWidget {
                           children: [
                             Stack(
                               children: [
-                                Container(
+                                SizedBox(
                                   height: 240,
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
@@ -207,7 +213,7 @@ class CategoryView extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            Column(
+                            const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
