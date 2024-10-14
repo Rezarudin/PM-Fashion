@@ -5,10 +5,8 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'package:liedle/app/modules/product_detail/controller/product_detail_controller.dart';
 
 class ProductDetailWebView extends GetView<ProductDetailController> {
-  final BrandElement brand; // Change this to BrandElement
   const ProductDetailWebView({
     super.key,
-    required this.brand,
   });
 
   @override
@@ -18,8 +16,7 @@ class ProductDetailWebView extends GetView<ProductDetailController> {
         title: const Text("WebView"),
       ),
       body: WebViewWidget(
-        controller:
-            controller.webViewController(brand.website), // Use brand.website
+        controller: controller.webViewController, // Use brand.website
       ),
     );
   }
