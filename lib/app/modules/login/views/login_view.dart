@@ -112,7 +112,7 @@ class _LoginViewState extends State<LoginView> {
                       borderRadius: BorderRadius.circular(25)),
                   child: ElevatedButton(
                     onPressed: () {
-                      Get.to(HomeView());
+                      Get.toNamed(Routes.CATEGORY);
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,

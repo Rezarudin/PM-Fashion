@@ -19,7 +19,9 @@ class _RegisterViewState extends State<RegisterView> {
       body: SafeArea(
         child: Stack(children: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.back();
+            },
             icon: Icon(Icons.arrow_back),
           ),
           Center(
@@ -111,7 +113,9 @@ class _RegisterViewState extends State<RegisterView> {
                           LinearGradient(colors: [Colors.blue, Colors.black]),
                       borderRadius: BorderRadius.circular(25)),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed(Routes.CATEGORY);
+                    },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
                         shadowColor: Colors.transparent),
